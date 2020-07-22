@@ -1,0 +1,8 @@
+project(nanovg)
+include_directories(include)
+add_executable(nanovg main.cpp nanovg.c demo.c perf.c)
+file(COPY example DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+target_link_libraries(nanovg powervr_common)
+configure_file(${POWERVR_SDK_ROOT_DIR}/bin/libGLES_CM.dll ${CMAKE_CURRENT_BINARY_DIR}/libGLES_CM.dll COPYONLY)
+configure_file(${POWERVR_SDK_ROOT_DIR}/bin/libGLESv2.dll ${CMAKE_CURRENT_BINARY_DIR}/libGLESv2.dll COPYONLY)
+configure_file(${POWERVR_SDK_ROOT_DIR}/bin/libEGL.dll ${CMAKE_CURRENT_BINARY_DIR}/libEGL.dll COPYONLY)
